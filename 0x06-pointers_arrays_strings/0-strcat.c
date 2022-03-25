@@ -1,20 +1,26 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * Prototype: char *_strcat(char *dest, char *src);
+ * This function appends the src string to the dest string, overwriting the terminating null byte (\0) at the end of dest, and then adds a terminating null byte
+ * Returns a pointer to the resulting string dest
  */
-int main(void)
-{  
-    char s2[] = "World!\n";
-    char *ptr;
+char *_strcat(char *dest, char *src)
+{
+	int count = 0, count2 = 0;
 
-    printf("%s\n", s1);
-    printf("%s", s2);
-    ptr = _strcat(s1, s2);
-    printf("%s", s1);
-    printf("%s", s2);
-    printf("%s", ptr);
-    return (0);
+	while (*(dest + count) != '\0')
+	{
+		count++;
+	}
+
+	while (count2 >= 0)
+	{
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) == '\0')
+			break;
+		count++;
+		count2++;
+	}
+	return (dest);
 }
